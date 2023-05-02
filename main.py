@@ -46,6 +46,17 @@ def enter_data():
         print("Email: ", email)
         print("Gender: ", gender)
         print("")
+        
+        # Define the SQL INSERT statement with placeholders for the values
+        sqlInsert = '''INSERT INTO VolunteerInfo (firstname, lastname, middleinitial, phone, email, gender)
+                    VALUES (?, ?, ?, ?, ?, ?)'''
+        
+        # Execute the INSERT statement with the variables as parameters
+        c.execute(sqlInsert, (firstName, lastName, middleInitial, phone, email, gender))
+        
+        # Commits changes to the database
+        conn.commit()
+        
     else:
         tk.messagebox.showwarning(title= "Error", message= "Please complete each required field (with an *)")
 
@@ -102,3 +113,6 @@ add_vol_button = tk.Button(add_vol_frame, text = "Add Volunteer", command = ente
 add_vol_button.grid(row = 4, column = 1, sticky = "news", padx = 20, pady = 10)
 
 root.mainloop()
+
+#Closes database connection
+conn.close()
