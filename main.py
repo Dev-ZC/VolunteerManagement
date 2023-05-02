@@ -18,10 +18,11 @@ c = conn.cursor()
 #                    gender varchar(1) NOT NULL CHECK (gender IN ('M', 'F', 'O')), 
 #                    id INTEGER PRIMARY KEY AUTOINCREMENT)""")
 
-#print(c.fetchall())
+# Next have a way display number of total number of vounteers
+# Seperate database to assign each volunteer with a role 
+# Have a search bar to see each person with a specific role
 
-#Make another table for availability
-
+# FCN called to add volunteer to
 def enter_data():
     #Assigning variables
     firstName = firstname_entry.get()
@@ -47,11 +48,11 @@ def enter_data():
         print("Gender: ", gender)
         print("")
         
-        # Define the SQL INSERT statement with placeholders for the values
+        # Defines the SQL INSERT statement with placeholders for the values
         sqlInsert = '''INSERT INTO VolunteerInfo (firstname, lastname, middleinitial, phone, email, gender)
                     VALUES (?, ?, ?, ?, ?, ?)'''
         
-        # Execute the INSERT statement with the variables as parameters
+        # Executes the INSERT statement with the variables as parameters
         c.execute(sqlInsert, (firstName, lastName, middleInitial, phone, email, gender))
         
         # Commits changes to the database
