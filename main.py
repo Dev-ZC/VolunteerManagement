@@ -16,11 +16,14 @@ c = conn.cursor()
 #                    phone varchar(20), 
 #                    email varchar(50), 
 #                    gender varchar(1) NOT NULL CHECK (gender IN ('M', 'F', 'O')), 
-#                    id INTEGER PRIMARY KEY AUTOINCREMENT)""")
+#                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                    role varchar(50))""")
 
 # Next have a way display number of total number of vounteers
+#   general data button that writes, the amount of each person per role, total amount of volunteers, and num people without a role
 # Seperate database to assign each volunteer with a role 
 # Have a search bar to see each person with a specific role
+# Search for people without roles
 
 # FCN called to add volunteer to
 def enter_data():
@@ -112,6 +115,17 @@ for widget in add_vol_frame.winfo_children():
 
 add_vol_button = tk.Button(add_vol_frame, text = "Add Volunteer", command = enter_data)
 add_vol_button.grid(row = 4, column = 1, sticky = "news", padx = 20, pady = 10)
+
+#Role Section <-----------------
+role_frame = tk.LabelFrame(frame, text="Role Assignemnt and Info")
+role_frame.grid(row = 1, column=0, padx=20, pady=20)
+
+firstname_label = tk.Label(add_vol_frame, text="First Name*", font=('Arial', 18)) # Creates object in add_vol_frames, gives attributes
+firstname_label.grid(row = 0, column = 0) # Places object within parent, according to grid 
+lastname_label = tk.Label(add_vol_frame, text="Last Name*", font=('Arial', 18))
+lastname_label.grid(row = 0, column = 1)
+middleinitial_label = tk.Label(add_vol_frame, text="Middle Initial", font=('Arial', 18))
+middleinitial_label.grid(row = 0, column = 2)
 
 root.mainloop()
 
