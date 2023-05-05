@@ -19,7 +19,7 @@ def printVolunteerInfo():
     for row in rows:
         print(row)
         
-#printVolunteerInfo()
+printVolunteerInfo()
 
 #cursor.execute("""ALTER TABLE VolunteerInfo ADD role varchar(50)""")
 
