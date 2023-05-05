@@ -249,7 +249,7 @@ rol_role_entry.grid(row = 1, column = 2)
 
 # Adds padding for each object within add_vol_frame
 for widget in role_frame.winfo_children():
-    widget.grid_configure(padx=10, pady=5)
+    widget.grid_configure(padx=13, pady=5)
     
 role_button = tk.Button(role_frame, text = "Assign Role", command = assign_role)
 role_button.grid(row = 4, column = 1, sticky = "news", padx = 20, pady = 10)
